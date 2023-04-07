@@ -1,14 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import './Tshirts.css'
 
-const Tshirts = () => {
-
-    const tshirts = useLoaderData();
-    console.log(tshirts);
+const Tshirts = ({tshirt, handleAddToCart}) => {
+    const { name, picture, price} = tshirt;
 
     return (
-        <div>
-            <h3>Total Tshirt data : {tshirts.length}</h3>
+        <div className='product'>
+            <img src={picture} alt="" />
+            <h3>{name}</h3>
+            <h3>Price : ${price}</h3>
+            <button onClick={()=>handleAddToCart(tshirt)}>buy now</button>
         </div>
     );
 };
